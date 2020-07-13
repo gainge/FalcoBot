@@ -10,7 +10,7 @@ client.once('ready', () => {
 client.on('message', message => {
   console.log(`Falco Hears: ${message.content}`);
 
-  if (message.content.toLowerCase() === 'jv') {
+  if (message.content.toLowerCase() === `${prefix}jv`) {
     message.channel.send('you won\'t');
   }
 });
