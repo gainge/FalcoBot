@@ -31,9 +31,10 @@ client.on('message', message => {
   const args = message.content.slice(prefix.length).split(/\s+/).filter(Boolean);
   const commandName = args.shift().toLowerCase();
 
-  if (!client.commands.has(commandName)) return; // Ignore commands that don't exist
+  const command = client.commands.get(commandName) 
+    || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
-  const command = client.commands.get(commandName);
+  if (!command) return; // Ignore commands that don't exist
 
   if (command.guildOnly && message.channel.type !== 'text') {
     return message.reply('My b, I can\'t execute that command inside DMs');
