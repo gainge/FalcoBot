@@ -27,12 +27,14 @@ client.on('message', message => {
   // Split by whitespace rather than ' '
   // Filter args to remove empty elements
   const args = message.content.slice(prefix.length).split(/\s+/).filter(Boolean);
-  const command = args.shift().toLowerCase();
+  const commandName = args.shift().toLowerCase();
 
-  if (!client.commands.has(command)) return; // Ignore commands that don't exist
+  if (!client.commands.has(commandName)) return; // Ignore commands that don't exist
+
+  const command = client.commands.get(commandName);
 
   try {
-    client.commands.get(command).execute(message, args);
+    command.execute(message, args);
   } catch (error) {
     console.error(error);
     message.reply('Falco missed a ledgedash trying to execute that command');
