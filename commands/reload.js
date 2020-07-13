@@ -1,7 +1,10 @@
+const Discord = require('discord.js');
+
 module.exports = {
 	name: 'reload',
   description: 'Reloads a command',
   args: true,
+  admin: Discord.Permissions.FLAGS.MANAGE_ROLES,
 	execute(message, args) {
     // TODO: add some kind of permissions checking for admins only
     // Maybe could even be done in the header, like index level that is
