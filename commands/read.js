@@ -12,10 +12,14 @@ const reads = [
   'jump out of hitstun',
 ];
 
+const randomRead = () => {
+  return reads[Math.floor(Math.random() * reads.length)];
+};
+
 module.exports = {
 	name: 'read',
 	description: 'Falco makes a sick read',
 	execute(message, args) {
-    message.channel.send(`Falco reads ${reads[Math.floor(Math.random() * reads.length)]}`);
+    message.channel.send(`Falco ${Math.random() > 0.2 ? 'hard ' : ''}reads ${randomRead()}`);
 	},
 };
