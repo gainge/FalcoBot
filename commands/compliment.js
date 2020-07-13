@@ -14,6 +14,7 @@ module.exports = {
 	name: 'compliment',
   description: 'Say something nice about a user :)',
   guildOnly: true,
+  aliases: ['comp'],
 	execute(message, args) {
     if (!args.length) {
       return message.channel.send(`${message.author} ${randomCompliment()}`); 
