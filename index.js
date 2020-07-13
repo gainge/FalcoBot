@@ -1,4 +1,4 @@
-require('dotenv').config();
+const config = require('./config.json');
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
@@ -6,7 +6,6 @@ const client = new Discord.Client();
 client.once('ready', () => {
 	console.log('Ready!');
 });
-
 
 client.on('message', message => {
   console.log(`Falco Hears: ${message.content}`);
@@ -17,4 +16,4 @@ client.on('message', message => {
 });
 
 
-client.login(`${process.env.DISCORD_BOT_TOKEN}`);
+client.login(config.token);
