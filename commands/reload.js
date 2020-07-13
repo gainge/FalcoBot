@@ -6,8 +6,12 @@ module.exports = {
   args: true,
   admin: Discord.Permissions.FLAGS.MANAGE_ROLES,
 	execute(message, args) {
-    // TODO: add some kind of permissions checking for admins only
-    // Maybe could even be done in the header, like index level that is
+    // TODO: set this as boolean, allow user to set role IDs
+    // probably should rename the field as well
+    // I'm basically thinking that you should be able to add and remove roles for commands if possible
+    // Updating permissions seems p sick, but we'll see
+    // idk if that logic should be handled here or what though... seems like it could get redundant if 
+    // it's handled here... like across multiple commands that is
 
     const commandName = args[0].toLowerCase();
     const command = message.client.commands.get(commandName)
