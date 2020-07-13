@@ -36,6 +36,11 @@ client.on('message', message => {
 
   if (!command) return; // Ignore commands that don't exist
 
+  // Check command execution permissions
+  if (command.admin && !message.member.hasPermission(command.admin)) {
+    return; // Do nothing, kek
+  }
+
   if (command.guildOnly && message.channel.type !== 'text') {
     return message.reply('My b, I can\'t execute that command inside DMs');
   }  
