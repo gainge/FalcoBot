@@ -2,6 +2,7 @@ token.txt
 helpful.txt
 
 .env
+config.json
 
 node_modules/
 build/
