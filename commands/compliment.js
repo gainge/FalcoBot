@@ -12,7 +12,8 @@ const randomCompliment = () => {
 
 module.exports = {
 	name: 'compliment',
-	description: 'Say something nice about a user :)',
+  description: 'Say something nice about a user :)',
+  guildOnly: true,
 	execute(message, args) {
     if (!message.mentions.users) {
       message.channel.send('Please tag somebody to compliment');
