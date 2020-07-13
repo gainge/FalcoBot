@@ -1,6 +1,8 @@
 token.txt
 helpful.txt
 
+.env
+
 node_modules/
 build/
 npm-debug.log
