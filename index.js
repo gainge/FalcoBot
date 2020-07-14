@@ -3,7 +3,7 @@ const { prefix, token, cooldown } = require('./config.json');
 const fs = require('fs');
 const Discord = require('discord.js');
 
-const client = new Discord.Client();
+const client = new Discord.Client({ ws: { intents: ['GUILDS', 'GUILD_INVITES', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS', 'DIRECT_MESSAGES', 'DIRECT_MESSAGE_REACTIONS'] } });
 client.commands = new Discord.Collection();
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
